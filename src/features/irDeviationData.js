@@ -8,4 +8,4 @@ const irDeviationData = (means, inter) => {
   return arr;
 };
 
-module.exports = irDeviationData;
+export default irDeviationData;

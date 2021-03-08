@@ -18,7 +18,7 @@ import meanOfInterRozp from '../../features/meanOfInterRozp';
 import irCharacteristic from '../../features/irCharacteristic';
 import irDeviationData from '../../features/irDeviationData';
 
-const Result = ({ isSM, themeType }) => {
+const Result = ({ themeType }) => {
   // selectors
   const gen = useSelector(selectGenerator);
   const n = useSelector(selectN);

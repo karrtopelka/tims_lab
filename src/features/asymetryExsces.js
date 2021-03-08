@@ -44,4 +44,4 @@ const asymetryExsces = (arr) => {
   return { asymetry, exsces, am, em };
 };
 
-module.exports = asymetryExsces;
+export default asymetryExsces;

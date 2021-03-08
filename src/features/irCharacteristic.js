@@ -80,4 +80,4 @@ const irCharacteristic = (inter, mean, n) => {
   return { moda, serAr, median };
 };
 
-module.exports = irCharacteristic;
+export default irCharacteristic;

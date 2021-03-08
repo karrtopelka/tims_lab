@@ -27,4 +27,4 @@ const interRozp = (obj, r) => {
   return { frequency, xMin, xMax, r };
 };
 
-module.exports = interRozp;
+export default interRozp;

@@ -29,7 +29,7 @@ const Content = ({ themeType }) => {
       {done && <Divider>Результат</Divider>}
 
       {done ? (
-        <Result isSM={isSM} themeType={themeType} />
+        <Result themeType={themeType} />
       ) : (
         <ContentRow isSM={isSM}>
           <Card shadow>

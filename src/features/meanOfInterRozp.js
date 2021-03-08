@@ -14,4 +14,4 @@ const meanOfInterRozp = (obj) => {
   return meanValues;
 };
 
-module.exports = meanOfInterRozp;
+export default meanOfInterRozp;

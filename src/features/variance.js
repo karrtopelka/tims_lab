@@ -14,4 +14,4 @@ const variance = (obj) => {
   return (varianc / Object.keys(obj).length).toFixed(2);
 };
 
-module.exports = variance;
+export default variance;
