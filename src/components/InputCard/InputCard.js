@@ -1,16 +1,14 @@
-import { Button, Card, Checkbox, Col, Dot, Row } from '@geist-ui/react';
+import { Button, Card, Col, Dot, Row } from '@geist-ui/react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InputRow from '../InputRow/InputRow';
 import {
   changeA,
   changeB,
-  changeFloor,
   changeN,
   changeR,
   selectA,
   selectB,
-  selectFloor,
   selectN,
   selectR,
 } from '../../features/inputsSlice';
