@@ -16,6 +16,7 @@ import interRozp from '../../features/interRozp';
 import asymetryExsces from '../../features/asymetryExsces';
 import meanOfInterRozp from '../../features/meanOfInterRozp';
 import irCharacteristic from '../../features/irCharacteristic';
+import irDeviationData from '../../features/irDeviationData';
 
 const Result = ({ isSM, themeType }) => {
   // selectors
@@ -54,6 +55,12 @@ const Result = ({ isSM, themeType }) => {
   const irMedian = irCharacteristics.median;
   const irSerAr = irCharacteristics.serAr;
   const irModa = irCharacteristics.moda;
+  const irData = irDeviationData(meanOfInter, inter);
+  const irRozmah = irData[irData.length - 1] - irData[0];
+  const irVariansa = variance(irData);
+  const irMstandart = standart(irVariansa);
+  const irMvariacia = variacia(irMstandart, irSerAr);
+  const irAsymetryExscess = asymetryExsces(irData);
 
   return (
     <>
@@ -171,6 +178,43 @@ const Result = ({ isSM, themeType }) => {
           <Grid xs={24} style={{ justifyContent: 'center' }}>
             <Text h4 style={{ margin: 0 }}>
               Сер. арифметичне: {irSerAr}
+            </Text>
+          </Grid>
+        </Grid.Container>
+      </Section>
+      <Section
+        title="Числові характеристики розсіяння для інтервального розподілу"
+        j
+      >
+        <Text h4 style={{ margin: 0 }}>
+          Розмах: {irRozmah}
+        </Text>
+        <Text h4 style={{ margin: 0 }}>
+          Варіанса: {irVariansa}
+        </Text>
+        <Text h4 style={{ margin: 0 }}>
+          Cтандарт: {irMstandart}
+        </Text>
+        <Text h4 style={{ margin: 0 }}>
+          Варіація: {irMvariacia}
+        </Text>
+      </Section>
+      <Section title="Числові характеристики форми">
+        <Grid.Container>
+          <Grid xs={24} style={{ justifyContent: 'space-between' }}>
+            <Text h4 style={{ margin: 0 }}>
+              Асиметрія: {irAsymetryExscess.asymetry}
+            </Text>
+            <Text h4 style={{ margin: 0 }}>
+              {irAsymetryExscess.am}
+            </Text>
+          </Grid>
+          <Grid xs={24} style={{ justifyContent: 'space-between' }}>
+            <Text h4 style={{ margin: 0 }}>
+              Ексцес: {irAsymetryExscess.exsces}
+            </Text>
+            <Text h4 style={{ margin: 0 }}>
+              {irAsymetryExscess.em}
             </Text>
           </Grid>
         </Grid.Container>
