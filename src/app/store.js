@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import inputsReducer from '../features/inputsSlice';
+import generatorReducer from '../features/generatorSlice';
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    inputs: inputsReducer,
+    generator: generatorReducer,
   },
 });
