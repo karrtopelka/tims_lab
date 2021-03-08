@@ -157,15 +157,23 @@ const Result = ({ isSM, themeType }) => {
         title="Числові характеристики центральної тенденції для інтервального розподілу"
         j
       >
-        <Text h4 style={{ margin: 0 }}>
-          Мода: {irModa}
-        </Text>
-        <Text h4 style={{ margin: 0 }}>
-          Медіана: {irMedian}
-        </Text>
-        <Text h4 style={{ margin: 0 }}>
-          Сер. арифметичне: {irSerAr}
-        </Text>
+        <Grid.Container>
+          <Grid xs={24} style={{ justifyContent: 'center' }}>
+            <Text h4 style={{ margin: 0 }}>
+              Мода: {irModa}
+            </Text>
+          </Grid>
+          <Grid xs={24} style={{ justifyContent: 'center' }}>
+            <Text h4 style={{ margin: 0 }}>
+              Медіана: {irMedian}
+            </Text>
+          </Grid>
+          <Grid xs={24} style={{ justifyContent: 'center' }}>
+            <Text h4 style={{ margin: 0 }}>
+              Сер. арифметичне: {irSerAr}
+            </Text>
+          </Grid>
+        </Grid.Container>
       </Section>
     </>
   );
