@@ -56,7 +56,9 @@ const Result = ({ isSM, themeType }) => {
   const irSerAr = irCharacteristics.serAr;
   const irModa = irCharacteristics.moda;
   const irData = irDeviationData(meanOfInter, inter);
-  const irRozmah = irData[irData.length - 1] - irData[0];
+  const irRozmah = parseFloat(
+    (irData[irData.length - 1] - irData[0]).toFixed(2),
+  );
   const irVariansa = variance(irData);
   const irMstandart = standart(irVariansa);
   const irMvariacia = variacia(irMstandart, irSerAr);
@@ -89,13 +91,24 @@ const Result = ({ isSM, themeType }) => {
         <StatTable vr={new Map(Object.entries(varrow))} tho="Xi" tht="Ni" />
       </Section>
       <Section title="Графічне представлення частотної таблиці" g>
-        <StatGraph vr={varrow} name="Частот" themeType={themeType} />
+        <StatGraph
+          vr={varrow}
+          name="Частот"
+          themeType={themeType}
+          mode="lines+markers"
+        />
       </Section>
       <Section title="Емпірична функція розподілу" g>
         <StatTable vr={new Map(Object.entries(fr))} tho="F(x)" tht="Xi" />
       </Section>
       <Section title="Графічне представлення емпіричної функції" g>
-        <StatGraph vr={fr} name="Частот" line="vh" themeType={themeType} />
+        <StatGraph
+          vr={fr}
+          name="Частот"
+          line="vh"
+          themeType={themeType}
+          mode="lines"
+        />
       </Section>
       <Section title="Числові характеристики центральної тенденції" j>
         <Text h4 style={{ margin: 0 }}>
@@ -153,6 +166,7 @@ const Result = ({ isSM, themeType }) => {
           type="bar"
           themeType={themeType}
           m
+          mode="lines+markers"
         />
       </Section>
       <Section title="Середні значення інтервалів" j>
