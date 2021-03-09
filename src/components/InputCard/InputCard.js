@@ -33,9 +33,9 @@ const InputCard = ({ setDone }) => {
       <form>
         <InputRow
           title={
-            <>{n <= 50 && <Dot type="error" />}Кількість чисел (&gt; 50)</>
+            <>{n < 50 && <Dot type="error" />}Кількість чисел (&gt;= 50)</>
           }
-          placeholder="51"
+          placeholder="55"
           type="number"
           query={n}
           setQuery={changeN}
@@ -75,7 +75,7 @@ const InputCard = ({ setDone }) => {
           <Col style={{ display: 'flex', justifyContent: 'center' }}>
             <Button
               disabled={
-                (parseInt(n) <= 50 ||
+                (parseInt(n) < 50 ||
                   isNaN(n) ||
                   isNaN(a) ||
                   isNaN(b) ||

@@ -17,6 +17,7 @@ import asymetryExsces from '../../features/asymetryExsces';
 import meanOfInterRozp from '../../features/meanOfInterRozp';
 import irCharacteristic from '../../features/irCharacteristic';
 import irDeviationData from '../../features/irDeviationData';
+import kvantiles from '../../features/kvantiles';
 
 const Result = ({ themeType }) => {
   // selectors
@@ -47,6 +48,7 @@ const Result = ({ themeType }) => {
   const variansa = variance(varrow);
   const mstandart = standart(variansa);
   const mvariacia = variacia(mstandart, serAr);
+  const kv = kvantiles(varrow);
 
   // integralniy rozpodil
   const inter = interRozp(varrow, r);
@@ -135,6 +137,39 @@ const Result = ({ themeType }) => {
           Варіація: {mvariacia}
         </Text>
       </Section>
+      {(kv[10].arr.length > 0 ||
+        kv[100].arr.length > 0 ||
+        kv[1000].arr.length > 0 ||
+        kv[4].arr.length > 0 ||
+        kv[8].arr.length > 0) && (
+        <Section title="Числові характеристики центральної тенденції" j>
+          {kv[4].arr.length > 0 && (
+            <Text h4 style={{ margin: 0 }}>
+              4: {kv[4].arr.join(', ')}
+            </Text>
+          )}
+          {kv[8].arr.length > 0 && (
+            <Text h4 style={{ margin: 0 }}>
+              8: {kv[8].arr.join(', ')}
+            </Text>
+          )}
+          {kv[10].arr.length > 0 && (
+            <Text h4 style={{ margin: 0 }}>
+              10: {kv[10].arr.join(', ')}
+            </Text>
+          )}
+          {kv[100].arr.length > 0 && (
+            <Text h4 style={{ margin: 0 }}>
+              100: {kv[100].arr.join(', ')}
+            </Text>
+          )}
+          {kv[1000].arr.length > 0 && (
+            <Text h4 style={{ margin: 0 }}>
+              1000: {kv[1000].arr.join(', ')}
+            </Text>
+          )}
+        </Section>
+      )}
       <Section title="Числові характеристики форми">
         <Grid.Container>
           <Grid xs={24} style={{ justifyContent: 'space-between' }}>
